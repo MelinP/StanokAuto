@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -5,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class loginPageTest {
 
-    WebDriver driver;
+   public WebDriver driver;
 
     @Before
     public void setUp() {
@@ -15,15 +16,19 @@ public class loginPageTest {
 
     }
 
+    @After
+    public void turnDown() {
+        driver.quit();
+    }
+
     @Test
     public void typeEmailTest(){
 
-
-        LoginPage LoginPage = new LoginPage();
+        LoginPage LoginPage = new LoginPage(driver);
 
         LoginPage.OpenLoginPage();
-        LoginPage.typeEmail("test@email.com");
-        LoginPage.typePassword("1234556");
+        LoginPage.typeEmail("gef.ossystem+5@gmail.com");
+        LoginPage.typePassword("123456Bd!");
         LoginPage.submitForm();
     }
 

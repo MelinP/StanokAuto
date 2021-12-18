@@ -5,8 +5,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainClass {
-    private WebDriver driver;
-    private WebDriverWait wait;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+
+    public MainClass(WebDriver driver){
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 15);
+    }
 
     public void openPage(String URL) {
         driver.get(URL);
