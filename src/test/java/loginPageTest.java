@@ -16,20 +16,18 @@ public class loginPageTest {
 
     }
 
-    @After
-    public void turnDown() {
-        driver.quit();
-    }
+//   @After
+//  public void turnDown() {
+//        driver.quit();
+//    }
 
     @Test
     public void typeEmailTest(){
-
+        String email = "gef.ossystem+5@gmail.com";
+        String password = "123456Bd!";
         LoginPage LoginPage = new LoginPage(driver);
 
-        LoginPage.OpenLoginPage();
-        LoginPage.typeEmail("gef.ossystem+5@gmail.com");
-        LoginPage.typePassword("123456Bd!");
-        LoginPage.submitForm();
+        LoginPage.OpenLoginPage().validAuth(email,password);
     }
 
     @Test

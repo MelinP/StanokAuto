@@ -13,20 +13,28 @@ public class LoginPage extends MainClass{
         super(driver);
     }
 
-    public void OpenLoginPage(){
+    public LoginPage OpenLoginPage(){
         this.openPage(LOGIN_URL);
+        return this;
     }
 
-    public void typeEmail(String value) {
+    public LoginPage typeEmail(String value) {
         this.waitForElementAndSendKeys(emailLocator, value);
+        return this;
     }
 
-    public void typePassword(String value) {
+    public LoginPage typePassword(String value) {
         this.waitForElementAndSendKeys(passwordLocator, value);
+        return this;
     }
 
-    public void submitForm(){
-
+    public LoginPage submitForm(){
         this.waitForElementPresentAndClick(submitButtonLocator);
+        return this;
+    }
+    public void validAuth(String emailValue, String passwordValue) {
+        this.typeEmail(emailValue);
+        this.typePassword(passwordValue);
+        this.submitForm();
     }
 }
